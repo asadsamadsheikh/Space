@@ -116,31 +116,51 @@ nav a:hover {
 
 .card {
     width: 300px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.55);
     border-radius: 15px;
     overflow: hidden;
     transition: 0.4s;
-    box-shadow: 0 0 15px rgba(255,0,0,0.4);
+    position: relative;
+
+    border: 1px solid rgba(255,0,0,0.4);
+    box-shadow:
+        0 0 10px rgba(255,0,0,0.4),
+        inset 0 0 10px rgba(255,0,0,0.2);
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: red;
+    box-shadow: 0 0 15px red;
 }
 
 .card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    filter: brightness(0.8);
 }
 
 .card h3 {
-    margin: 15px 0 5px;
+    margin: 15px;
 }
 
 .card p {
     padding: 0 15px 20px;
     font-size: 14px;
+    color: #ccc;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px rgba(255,0,0,0.9);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+        0 0 25px rgba(255,0,0,0.9),
+        inset 0 0 20px rgba(255,0,0,0.4);
 }
 
 /* FOOTER */
