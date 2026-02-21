@@ -106,61 +106,95 @@ nav a:hover {
     text-shadow: 0 0 15px rgba(255,0,0,0.6);
 }
 
-/* CARDS */
+/* =========================
+   CARDS SECTION
+========================= */
+
+/* Cards container */
 .cards {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 35px;
     flex-wrap: wrap;
 }
 
+/* Individual Card */
 .card {
-    width: 300px;
-    background: rgba(0,0,0,0.55);
+    position: relative;
+    width: 320px;
+    height: 300px;
     border-radius: 15px;
     overflow: hidden;
-    transition: 0.4s;
-    position: relative;
+    cursor: pointer;
+    background: #000;
 
-    border: 1px solid rgba(255,0,0,0.4);
-    box-shadow:
-        0 0 10px rgba(255,0,0,0.4),
-        inset 0 0 10px rgba(255,0,0,0.2);
+    border: 1px solid rgba(255, 0, 0, 0.35);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.35);
+
+    transition: all 0.4s ease;
 }
 
-.card::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 80%;
-    height: 3px;
-    background: red;
-    box-shadow: 0 0 15px red;
-}
-
+/* Card Image */
 .card img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
-    filter: brightness(0.8);
+    transition: transform 0.5s ease;
+}
+
+/* Dark Gradient Overlay */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.9) 20%,
+        rgba(0,0,0,0.4) 50%,
+        transparent 80%
+    );
+    z-index: 1;
+}
+
+/* Text Styling */
+.card h3,
+.card p {
+    position: absolute;
+    left: 20px;
+    z-index: 2;
 }
 
 .card h3 {
-    margin: 15px;
+    bottom: 55px;
+    font-size: 22px;
 }
 
 .card p {
-    padding: 0 15px 20px;
+    bottom: 20px;
     font-size: 14px;
     color: #ccc;
 }
 
+/* Bottom Glow Line */
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 70%;
+    height: 3px;
+    background: red;
+    box-shadow: 0 0 18px red;
+}
+
+/* Hover Effects */
 .card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow:
-        0 0 25px rgba(255,0,0,0.9),
-        inset 0 0 20px rgba(255,0,0,0.4);
+    transform: translateY(-12px);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
+}
+
+.card:hover img {
+    transform: scale(1.08);
 }
 
 /* FOOTER */
