@@ -138,14 +138,15 @@ nav a:hover{
 
 /* IMAGE FIXES */
 .card img[src*="mars"]{
-    object-position:center 30%;
+    object-position:center 40%;
 }
 
-.card img[src*="artemis"]{
-    object-fit:contain;
-    background:black;
+.card img[src*="artemis"] {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
 }
-
 /* OVERLAY */
 .card::before{
     content:"";
