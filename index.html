@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CosmoAI</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>CosmoAI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-<!-- NAVBAR -->
+<!-- navbar -->
 <header class="navbar">
+
     <div class="logo">COSMOAI</div>
-    <nav>
+
+    <nav class="nav-links">
         <a href="#">Home</a>
         <a href="#">Planets</a>
         <a href="#">Missions</a>
         <a href="#">Space News</a>
-        <a href="#">NASA AI</a>
+        <a href="#">AI Assistant</a>
         <a href="#">Contact</a>
     </nav>
+
+    <!-- MENU BUTTON -->
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
 </header>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+
+    <span class="close-btn" onclick="toggleSidebar()">✖</span>
+
+    <a href="#">Home</a>
+    <a href="#">Planets</a>
+    <a href="#">Missions</a>
+    <a href="#">Explore</a>
+    <a href="#">AI Assistant</a>
+    <a href="#">Contact</a>
+
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -36,76 +55,74 @@
 
 <!-- PLANETS -->
 <section class="section">
-    <h2>Featured Planets 🪐</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <img src="mars1.png">
-            <div class="card-content">
-                <h3>Mars</h3>
-                <p>The red planet and future home of humanity.</p>
+        <h2>Featured Planets 🪐</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="mars1.png">
+                    <div class="card-content">
+                        <h3>Mars</h3>
+                            <p>The red planet and future home of humanity.</p>
             </div>
         </div>
 
-        <div class="card">
-            <img src="jupiter.png">
+    <div class="card">
+        <img src="jupiter.png">
             <div class="card-content">
                 <h3>Jupiter</h3>
                 <p>The largest planet in our solar system.</p>
             </div>
-        </div>
+    </div>
 
-        <div class="card">
-            <img src="saturn.png">
+    <div class="card">
+        <img src="saturn.png">
             <div class="card-content">
                 <h3>Saturn</h3>
                 <p>Famous for its beautiful ring system.</p>
             </div>
-        </div>
-
     </div>
+
+</div>
 </section>
 
 <!-- MISSIONS -->
 <section class="section">
     <h2>Space Missions 🚀</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <img src="aretemis1.png">
-            <div class="card-content">
-                <h3>Artemis</h3>
-                <p>Returning humans to the Moon.</p>
+        <div class="cards">
+            <div class="card">
+                <img src="aretemis1.png">
+                    <div class="card-content">
+                        <h3>Artemis</h3>
+                        <p>Returning humans to the Moon.</p>
             </div>
-        </div>
+    </div>
 
-        <div class="card">
-            <img src="mars-rover.png">
+    <div class="card">
+        <img src="mars-rover.png">
             <div class="card-content">
                 <h3>Mars Rover</h3>
                 <p>Exploring the surface of Mars.</p>
             </div>
-        </div>
+    </div>
 
-        <div class="card">
-            <img src="webb.png">
+    <div class="card">
+        <img src="webb.png">
             <div class="card-content">
                 <h3>James Webb</h3>
                 <p>Discovering deep space mysteries.</p>
             </div>
-        </div>
-
     </div>
+
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <h2>COSMOAI</h2>
-    <p>Exploring Space With Intelligence</p>
-    <p>© 2026 Made by Asad 🚀</p>
+<h2>COSMOAI</h2>
+<p>Exploring Space With Intelligence</p>
+<p>© 2026 Made by Asad 🚀</p>
 </footer>
+
+<script src="index.js"></script>
 
 </body>
 </html>
