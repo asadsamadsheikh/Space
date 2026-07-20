@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SIT AI | CosmoAI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Specific inline styles to support the AI Assistant Layout using index.css variables -->
+    <style>
+        .ai-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+            padding: 30px;
+            text-align: left;
+        }
+
+        .chat-box {
+            min-height: 250px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-right: 10px;
+            margin-bottom: 25px;
+        }
+
+        .chat-message {
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            line-height: 1.5;
+            max-width: 85%;
+        }
+
+        .chat-message.ai {
+            background: rgba(255, 0, 0, 0.15);
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            align-self: flex-start;
+            color: #fff;
+        }
+
+        .chat-message.user {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            align-self: flex-end;
+            color: #eee;
+        }
+
+        .ai-input-wrapper {
+            display: flex;
+            gap: 12px;
+        }
+
+        .ai-input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .ai-input:focus {
+            border-color: #ff2d2d;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
+
+        .quick-prompts {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .prompt-chip {
+            padding: 8px 18px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 20px;
+            color: #ddd;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .prompt-chip:hover {
+            background: rgba(255, 0, 0, 0.4);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">SIT</div>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="planet.html">Planets</a>
+            <a href="explore.html">Missions</a>
+            <a href="spacenews.html">Space News</a>
+            <a href="sitai.html">SIT AI</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar" class="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">✖</span>
+        <a href="index.html">Home</a>
+        <a href="planet.html">Planets</a>
+        <a href="explore.html">Missions</a>
+        <a href="spacenews.html">Space News</a>
+        <a href="sitai.html">SIT AI</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- HERO HEADER -->
+    <section class="hero" style="height: 40vh; padding-top: 60px;">
+        <h1>SIT Space Intelligence 🤖</h1>
+        <p>Ask anything about astronomy, orbital mechanics, cosmic events, or space missions.</p>
+    </section>
+
+    <!-- INTERACTIVE AI SECTION -->
+    <section class="section" style="padding-top: 10px;">
+        <div class="ai-container">
+            <div class="chat-box" id="chatBox">
+                <div class="chat-message ai">
+                    <strong>SIT AI:</strong> Greetings Explorer! I am your AI Space Assistant. Ask me a question about our solar system, upcoming rocket launches, or astrophysics!
+                </div>
+            </div>
+
+            <div class="ai-input-wrapper">
+                <input type="text" id="userInput" class="ai-input" placeholder="Ask SIT AI e.g. 'How far is Mars from Earth?'..." onkeypress="handleKeyPress(event)">
+                <button class="glow-btn" onclick="sendMessage()">Ask AI</button>
+            </div>
+
+            <div class="quick-prompts">
+                <span class="prompt-chip" onclick="quickAsk('Why is Venus so hot?')">Why is Venus so hot?</span>
+                <span class="prompt-chip" onclick="quickAsk('What is the James Webb Telescope?')">What is JWST?</span>
+                <span class="prompt-chip" onclick="quickAsk('How do rockets escape Earth gravity?')">Escape Velocity</span>
+                <span class="prompt-chip" onclick="quickAsk('Is there water on the Moon?')">Water on Moon</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>SIT</h2>
+        <p>Exploring Space With Intelligence</p>
+        <p>© 2026 Made by Asad 🚀</p>
+    </footer>
+
+    <script src="index.js"></script>
+    <script>
+        /* Interactive Assistant Script */
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const chatBox = document.getElementById('chatBox');
+            const query = input.value.trim();
+
+            if (!query) return;
+
+            // User Message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-message user';
+            userMsg.innerHTML = '<strong>You:</strong> ' + query;
+            chatBox.appendChild(userMsg);
+
+            input.value = '';
+
+            // Simulated AI Dynamic Response
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'chat-message ai';
+                
+                let responseText = "That's a fascinating cosmic inquiry! SIT AI is processing telemetry data on '" + query + "'. Check back for mission updates or explore our Planets section for details.";
+                
+                // Custom quick matching responses
+                const lower = query.toLowerCase();
+                if (lower.includes('venus')) {
+                    responseText = "Venus has a thick atmosphere of over 96% Carbon Dioxide causing a runaway greenhouse effect, keeping surface temperatures at a blistering 465°C (870°F)!";
+                } else if (lower.includes('webb') || lower.includes('jwst')) {
+                    responseText = "The James Webb Space Telescope uses high-resolution infrared instruments to look back over 13.5 billion years to observe the first stars and galaxies formed in the Universe.";
+                } else if (lower.includes('gravity') || lower.includes('escape')) {
+                    responseText = "To break free from Earth's gravitational pull, a rocket must reach an escape velocity of approximately 11.2 km/s (over 25,000 mph).";
+                } else if (lower.includes('water') || lower.includes('moon')) {
+                    responseText = "Yes! NASA confirmed water ice deposits in permanently shadowed craters at the Moon's South Pole, key for future Artemis bases.";
+                }
+
+                aiMsg.innerHTML = '<strong>SIT AI:</strong> ' + responseText;
+                chatBox.appendChild(aiMsg);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 600);
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function quickAsk(text) {
+            document.getElementById('userInput').value = text;
+            sendMessage();
+        }
+    </script>
+
+</body>
+</html>

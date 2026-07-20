@@ -1,169 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>CosmoAI</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>CosmoAI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="index.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">SIT</div>
 
-    <div class="logo">SIT</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="planet.html">Planets</a>
+            <a href="explore.html">Missions</a>
+            <a href="#">Space News</a>
+            <a href="#">SIT AI</a>
+            <a href="#">Contact</a>
+        </nav>
 
-    <nav class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Planets</a>
-        <a href="#">Missions</a>
-        <a href="#">Space News</a>
+        <!-- MENU BUTTON -->
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar" class="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">✖</span>
+        <a href="index.html">Home</a>
+        <a href="planet.html">Planets</a>
+        <a href="explore.html">Missions</a>
+        <a href="explore.html">Explore</a>
         <a href="#">SIT AI</a>
         <a href="#">Contact</a>
-    </nav>
+    </div>
 
-    <!-- MENU BUTTON -->
-    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Exploring The Universe With AI 🚀</h1>
+        <p>
+            Discover planets, space missions, and real-time space intelligence
+            powered by artificial intelligence.
+        </p>
+        <a href="explore.html">
+            <button class="glow-btn">Explore Now</button>
+        </a>
+    </section>
 
-</header>
+    <!-- PLANETS --> 
+    <section class="section">
+        <h2>All Planets 🪐</h2>
 
-<!-- SIDEBAR -->
-<div id="sidebar" class="sidebar">
+        <div class="cards">
+            <div class="card">
+                <img src="mercury.png" alt="Mercury">
+                <div class="card-content">
+                    <h3>Mercury</h3>
+                    <p>The smallest planet and closest to the Sun.</p>
+                </div>
+            </div>
 
-    <span class="close-btn" onclick="toggleSidebar()">✖</span>
+            <div class="card">
+                <img src="venus.png" alt="Venus">
+                <div class="card-content">
+                    <h3>Venus</h3>
+                    <p>The hottest planet with thick toxic clouds.</p>
+                </div>
+            </div>
 
-    <a href="#">Home</a>
-    <a href="#">Planets</a>
-    <a href="#">Missions</a>
-    <a href="#">Explore</a>
-    <a href="#">SIT AI</a>
-    <a href="#">Contact</a>
+            <div class="card">
+                <img src="earth.png" alt="Earth">
+                <div class="card-content">
+                    <h3>Earth</h3>
+                    <p>The only known planet that supports life.</p>
+                </div>
+            </div>
 
-</div>
+            <div class="card">
+                <img src="mars1.png" alt="Mars">
+                <div class="card-content">
+                    <h3>Mars</h3>
+                    <p>The red planet and future home of humanity.</p>
+                </div>
+            </div>
 
-<!-- HERO -->
-<section class="hero">
-<h1>Exploring The Universe With AI 🚀</h1>
-<p>
-Discover planets, space missions, and real-time space intelligence
-powered by artificial intelligence.
-</p>
-<a href="explore.html">
-<button class="glow-btn" >Explore Now</button>
-</a>
-</section>
+            <div class="card">
+                <img src="jupiter.png" alt="Jupiter">
+                <div class="card-content">
+                    <h3>Jupiter</h3>
+                    <p>The largest planet in the solar system.</p>
+                </div>
+            </div>
 
-<!-- PLANETS --> 
- <section class="section">
-<h2>All Planets 🪐</h2>
+            <div class="card">
+                <img src="saturn.png" alt="Saturn">
+                <div class="card-content">
+                    <h3>Saturn</h3>
+                    <p>Famous for its beautiful ring system.</p>
+                </div>
+            </div>
 
-<div class="cards">
+            <div class="card">
+                <img src="uranus.png" alt="Uranus">
+                <div class="card-content">
+                    <h3>Uranus</h3>
+                    <p>An ice giant that rotates on its side.</p>
+                </div>
+            </div>
 
-<div class="card">
-<img src="mercury.png">
-<div class="card-content">
-<h3>Mercury</h3>
-<p>The smallest planet and closest to the Sun.</p>
-</div>
-</div>
+            <div class="card">
+                <img src="neptune.png" alt="Neptune">
+                <div class="card-content">
+                    <h3>Neptune</h3>
+                    <p>The farthest planet with powerful storms.</p>
+                </div>
+            </div>
+        </div>
+    </section> 
 
-<div class="card">
-<img src="venus.png">
-<div class="card-content">
-<h3>Venus</h3>
-<p>The hottest planet with thick toxic clouds.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="earth.png">
-<div class="card-content">
-<h3>Earth</h3>
-<p>The only known planet that supports life.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="mars1.png">
-<div class="card-content">
-<h3>Mars</h3>
-<p>The red planet and future home of humanity.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="jupiter.png">
-<div class="card-content">
-<h3>Jupiter</h3>
-<p>The largest planet in the solar system.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="saturn.png">
-<div class="card-content">
-<h3>Saturn</h3>
-<p>Famous for its beautiful ring system.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="uranus.png">
-<div class="card-content">
-<h3>Uranus</h3>
-<p>An ice giant that rotates on its side.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="neptune.png">
-<div class="card-content">
-<h3>Neptune</h3>
-<p>The farthest planet with powerful storms.</p>
-</div>
-</div>
-
-</div>
-</section> 
-
-<!-- MISSIONS --> 
- <section class="section"> 
-    <h2>Space Missions 🚀</h2> 
-    <div class="cards"> 
-        <div class="card"> 
-            <img src="aretemis1.png"> 
-            <div class="card-content"> 
-                <h3>Artemis</h3> 
-                <p>Returning humans to the Moon.</p> 
+    <!-- MISSIONS --> 
+    <section class="section"> 
+        <h2>Space Missions 🚀</h2> 
+        <div class="cards"> 
+            <div class="card"> 
+                <img src="aretemis1.png" alt="Artemis Mission"> 
+                <div class="card-content"> 
+                    <h3>Artemis</h3> 
+                    <p>Returning humans to the Moon.</p> 
+                </div> 
+            </div> 
+            <div class="card"> 
+                <img src="mars-rover.png" alt="Mars Rover"> 
+                <div class="card-content"> 
+                    <h3>Mars Rover</h3> 
+                    <p>Exploring the surface of Mars.</p> 
+                </div> 
+            </div> 
+            <div class="card"> 
+                <img src="webb.png" alt="James Webb Telescope"> 
+                <div class="card-content"> 
+                    <h3>James Webb</h3> 
+                    <p>Discovering deep space mysteries.</p> 
+                </div> 
             </div> 
         </div> 
-        <div class="card"> 
-            <img src="mars-rover.png"> 
-            <div class="card-content"> 
-                <h3>Mars Rover</h3> 
-                <p>Exploring the surface of Mars.</p> 
-            </div> 
-        </div> 
-        <div class="card"> 
-            <img src="webb.png"> 
-            <div class="card-content"> 
-                <h3>James Webb</h3> 
-                <p>Discovering deep space mysteries.</p> 
-            </div> 
-        </div> 
-    </div> 
-</section>
+    </section>
 
-<footer>
-<h2>SIT</h2>
-<p>Exploring Space With Intelligence</p>
-<p>© 2026 Made by Asad 🚀</p>
-</footer>
+    <footer>
+        <h2>SIT</h2>
+        <p>Exploring Space With Intelligence</p>
+        <p>© 2026 Made by Asad 🚀</p>
+    </footer>
 
-<script src="index.js"></script>
+    <script src="index.js"></script>
 
 </body>
 </html>
